@@ -9224,204 +9224,361 @@ input,select,textarea,button
 }
 
 
-/* FINAL MOBILE RESPONSIVE FIX — product cards and action buttons */
-@media (max-width: 480px) {
-  html, body {
+/* PRINCESS PREMIUM MOBILE PRODUCT GRID — 2 PRODUCTS PER ROW */
+/* Keep this block at the very end so it safely overrides older responsive rules. */
+@media screen and (max-width: 600px) {
+  html,
+  body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .container {
-    width: calc(100% - 28px);
+    width: calc(100% - 24px);
     max-width: 100%;
   }
 
+  /* Homepage catalogue: exactly two tidy product cards per row */
   .product-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 16px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch;
+    gap: 12px !important;
+    width: 100%;
   }
 
   .product-card {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .product-image {
-    height: auto;
-    aspect-ratio: 1.15 / 1;
-  }
-
-  .product-info {
-    padding: 16px !important;
-    min-width: 0;
-  }
-
-  .product-info h3 {
-    font-size: 18px !important;
-    line-height: 1.4;
-    overflow-wrap: anywhere;
-  }
-
-  .product-description,
-  .product-info p {
-    font-size: 14px !important;
-    line-height: 1.65;
-    overflow-wrap: anywhere;
-  }
-
-  .price-row {
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .card-variant-row {
-    align-items: stretch;
-  }
-
-  .card-variant-select {
-    width: 100%;
-    max-width: 100% !important;
-    min-height: 44px;
-    font-size: 14px !important;
-  }
-
-  .product-actions {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    width: 100%;
-    gap: 10px !important;
-  }
-
-  .product-actions .btn,
-  .product-actions .card-add-button,
-  .product-actions .card-order-button,
-  .product-actions .card-whatsapp-button {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    min-height: 48px;
-    padding: 12px 14px !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere;
-    text-align: center;
-    font-size: 14px !important;
-    line-height: 1.35;
-    box-sizing: border-box;
-  }
-
-  .mobile-sticky-shop-now {
-    right: 12px !important;
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
-    min-width: 116px !important;
-    min-height: 44px !important;
-    padding: 11px 14px !important;
-    font-size: 13px !important;
-    z-index: 1200;
-  }
-
-  body {
-    padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 700px) {
-  .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-  }
-
-  .product-actions {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 8px !important;
-  }
-
-  .product-actions .btn,
-  .product-actions .card-add-button,
-  .product-actions .card-order-button,
-  .product-actions .card-whatsapp-button {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    min-height: 46px;
-    padding: 10px 8px !important;
-    white-space: normal !important;
-    text-align: center;
-    box-sizing: border-box;
-  }
-}
-/* MOBILE HOME PAGE - 2 PRODUCTS PER ROW */
-@media screen and (max-width: 600px) {
-
-  .product-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-    align-items: stretch;
-  }
-
-  .product-card {
+    flex-direction: column;
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden;
-    border-radius: 18px !important;
+    border: 1px solid rgba(66, 39, 25, 0.10);
+    border-radius: 17px !important;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(66, 39, 25, 0.07);
+    transition: box-shadow .2s ease, transform .2s ease;
   }
 
-  .product-image {
-    height: 145px !important;
-    min-height: 0 !important;
-    aspect-ratio: auto !important;
+  .product-card:active {
+    transform: scale(.99);
   }
 
-  .product-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-  }
-
-  .product-info {
-    padding: 12px !important;
-    min-width: 0;
-  }
-
-  .product-info h3 {
-    font-size: 15px !important;
-    line-height: 1.5 !important;
-    overflow-wrap: anywhere;
-  }
-
-  .product-info p {
-    font-size: 12px !important;
-    line-height: 1.6 !important;
-  }
-
-  .product-actions {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
+  /* Compact product photography: prevent oversized blank image panels */
+  .product-image-wrap {
+    position: relative;
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
   }
 
-  .product-actions button,
-  .product-actions .btn {
+  .product-image-wrap .product-image,
+  .product-card .product-image {
+    display: flex !important;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    min-height: 42px !important;
-    padding: 8px 4px !important;
-    font-size: 11px !important;
-    white-space: normal !important;
+    height: 148px !important;
+    min-height: 148px !important;
+    max-height: 148px !important;
+    aspect-ratio: auto !important;
+    padding: 8px !important;
+    overflow: hidden;
     box-sizing: border-box;
   }
 
-  /* Prevent floating button covering products */
+  .product-card .product-image img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+    border-radius: 5px;
+  }
+
+  .product-card .sample-label {
+    top: 8px !important;
+    left: 8px !important;
+    max-width: calc(100% - 48px);
+    padding: 6px 8px !important;
+    border-radius: 9px !important;
+    font-size: 9px !important;
+    line-height: 1.2;
+    letter-spacing: .045em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .product-card .stock-badge {
+    left: 8px !important;
+    bottom: 8px !important;
+    gap: 5px;
+    padding: 5px 7px !important;
+    font-size: 9px !important;
+  }
+
+  .product-card .stock-badge::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .product-card .wishlist-card-btn {
+    top: 8px !important;
+    right: 8px !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(36, 45, 39, .10);
+  }
+
+  .product-card .wishlist-card-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Neat, consistent information area */
+  .product-card .product-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-width: 0;
+    padding: 11px !important;
+  }
+
+  .product-card .product-category {
+    margin: 0 0 6px !important;
+    font-size: 9px !important;
+    line-height: 1.35;
+    letter-spacing: .07em;
+    overflow-wrap: anywhere;
+  }
+
+  .product-card .product-info h3 {
+    margin: 0 0 7px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .product-card .product-info h3 a {
+    color: #422719;
+    text-decoration: none;
+  }
+
+  .product-card .product-description,
+  .product-card .product-info > p:not(.delivery-fee-note) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    min-height: 0;
+    margin: 0 0 10px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    color: #756d61;
+    overflow-wrap: anywhere;
+  }
+
+  .product-card .card-variant-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    min-width: 0;
+    margin-top: auto;
+    padding-top: 10px;
+  }
+
+  .product-card .card-variant-row label {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .product-card .card-variant-select {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    min-height: 38px !important;
+    padding: 7px 8px !important;
+    border-radius: 10px !important;
+    font-size: 11px !important;
+  }
+
+  .product-card .price-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start;
+    gap: 5px !important;
+    min-width: 0;
+    margin-top: 10px;
+  }
+
+  .product-card .price {
+    display: block;
+    max-width: 100%;
+    font-size: 18px !important;
+    line-height: 1.25;
+    letter-spacing: -.035em;
+    overflow-wrap: anywhere;
+  }
+
+  .product-card .price-note {
+    font-size: 10px !important;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .product-card .price-row .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px !important;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .product-card .delivery-fee-note {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin: 7px 0 0 !important;
+    font-size: 9px !important;
+    line-height: 1.4 !important;
+    color: #756d61;
+  }
+
+  /* Two full-width actions inside each card, never clipped */
+  .product-card .product-actions {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 7px !important;
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+  }
+
+  .product-card .product-actions .btn,
+  .product-card .product-actions .card-add-button,
+  .product-card .product-actions .card-order-button,
+  .product-card .product-actions .card-whatsapp-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 40px !important;
+    padding: 8px 5px !important;
+    border-radius: 11px !important;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px !important;
+    font-weight: 750;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+
+  .product-card .product-actions .card-add-button {
+    background: #f05a28 !important;
+    border: 1px solid #f05a28 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 10px rgba(240, 90, 40, .14);
+  }
+
+  .product-card .product-actions .card-whatsapp-button {
+    background: #fff !important;
+    border: 1px solid #b9cfe5 !important;
+    color: #1769d2 !important;
+  }
+
+  .product-card .product-actions .basket-icon {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+  }
+
+  /* Avoid the floating Shop Now button covering Order Now */
   .mobile-sticky-shop-now {
     display: none !important;
+  }
+
+  body {
+    padding-bottom: 18px !important;
+  }
+}
+
+/* Very narrow phones: keep the two-column layout, tighten spacing gently */
+@media screen and (max-width: 380px) {
+  .product-grid {
+    gap: 9px !important;
+  }
+
+  .product-card .product-image-wrap .product-image,
+  .product-card .product-image {
+    height: 126px !important;
+    min-height: 126px !important;
+    max-height: 126px !important;
+    padding: 6px !important;
+  }
+
+  .product-card .product-info {
+    padding: 9px !important;
+  }
+
+  .product-card .product-info h3 {
+    font-size: 13px !important;
+  }
+
+  .product-card .price {
+    font-size: 16px !important;
+  }
+
+  .product-card .product-actions .btn,
+  .product-card .product-actions .card-add-button,
+  .product-card .product-actions .card-whatsapp-button {
+    min-height: 38px !important;
+    padding: 7px 3px !important;
+    font-size: 9px !important;
+  }
+}
+
+/* Small tablets retain two columns with more breathing room */
+@media screen and (min-width: 481px) and (max-width: 700px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .product-card .product-image-wrap .product-image,
+  .product-card .product-image {
+    height: 175px !important;
+    min-height: 175px !important;
+    max-height: 175px !important;
+  }
+
+  .product-card .product-info h3 {
+    font-size: 16px !important;
+  }
+
+  .product-card .product-actions .btn,
+  .product-card .product-actions .card-add-button,
+  .product-card .product-actions .card-whatsapp-button {
+    min-height: 43px !important;
+    font-size: 11px !important;
   }
 }
