@@ -6,7 +6,7 @@
  * 5. Search, filters, checkout and WhatsApp order flow
  * Edit product data in products.js; keep business details verified.
  */
-const WA_NUMBER='9994437394';
+const WA_NUMBER='919566417764';
 // BUSINESS CONFIG: replace the social URLs with the official Princess Food Products profiles.
 const SOCIAL_LINKS={
   instagram:'https://www.instagram.com/princess_food_products?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw==https://www.instagram.com/',
