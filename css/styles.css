@@ -9222,3 +9222,58 @@ input,select,textarea,button
     transform:scale(.97)!important
   }
 }
+/* ===== MOBILE PRODUCT CARD FIX ===== */
+@media screen and (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .product-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden;
+  }
+
+  .product-info {
+    min-width: 0;
+    padding: 16px !important;
+  }
+
+  .product-info h3 {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .product-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .product-actions .btn,
+  .product-actions button {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+    white-space: normal !important;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .product-actions .btn-order-now,
+  .product-actions .btn-primary,
+  .product-actions .btn-whatsapp {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
